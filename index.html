@@ -61,110 +61,24 @@
                 </div>
 
                 <div class="finder">
-                    <!-- <label for="search" class="structural"><i class="fas fa-search"></i></label> -->
                     <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
                 <div class="chat">
 
-                    <section class="chat-section">
+                    <section class="chat-section" v-for="item in contacts">
                         <div class="icon">
-                            <img class="img-icon" src="img/avatar_1.jpg" alt="">
+                            <img class="img-icon" :src="'img/avatar'+ item.avatar +'.jpg'" alt="">
                         </div>
 
                         <section>
 
-                            <h4>Michele</h4>
-                            <span>Ultimo messaggio inviato</span>
+                            <h4>{{item.name}}</h4>
+                            <span>{{ item.messages[0].message }}</span>
 
                         </section>
 
                     </section>
-
-                    <section class="chat-section">
-                        <div class="icon">
-                            <img class="img-icon" src="img/avatar_1.jpg" alt="">
-                        </div>
-
-                        <section>
-
-                            <h4>Michele</h4>
-                            <span>Ultimo messaggio inviato</span>
-
-                        </section>
-
-                    </section>
-
-                    <section class="chat-section">
-                        <div class="icon">
-                            <img class="img-icon" src="img/avatar_1.jpg" alt="">
-                        </div>
-
-                        <section>
-
-                            <h4>Michele</h4>
-                            <span>Ultimo messaggio inviato</span>
-
-                        </section>
-
-                    </section>
-
-                    <section class="chat-section">
-                        <div class="icon">
-                            <img class="img-icon" src="img/avatar_1.jpg" alt="">
-                        </div>
-
-                        <section>
-
-                            <h4>Michele</h4>
-                            <span>Ultimo messaggio inviato</span>
-
-                        </section>
-
-                    </section>
-
-                    <section class="chat-section">
-                        <div class="icon">
-                            <img class="img-icon" src="img/avatar_1.jpg" alt="">
-                        </div>
-
-                        <section>
-
-                            <h4>Michele</h4>
-                            <span>Ultimo messaggio inviato</span>
-
-                        </section>
-
-                    </section>
-
-                    <section class="chat-section">
-                        <div class="icon">
-                            <img class="img-icon" src="img/avatar_1.jpg" alt="">
-                        </div>
-
-                        <section>
-
-                            <h4>Michele</h4>
-                            <span>Ultimo messaggio inviato</span>
-
-                        </section>
-
-                    </section>
-
-                    <section class="chat-section">
-                        <div class="icon">
-                            <img class="img-icon" src="img/avatar_1.jpg" alt="">
-                        </div>
-
-                        <section>
-
-                            <h4>Michele</h4>
-                            <span>Ultimo messaggio inviato</span>
-
-                        </section>
-
-                    </section>
-                
 
                 </div>
 
