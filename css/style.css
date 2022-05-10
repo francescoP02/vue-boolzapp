@@ -1,9 +1,94 @@
+/* RESET */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* GENERAL */
+
 body {
     font-family: 'Lato', sans-serif;
+}
+
+#root {
+    background-color: #d8dbd4;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-top {
+    height: 15%;
+    width: 100%;
+    background-color: #009688;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* MAIN */
+
+.container {
+    width: 80%;
+    min-width: 950px;
+    height: 95%;
+    background-color: #f1f1f1;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+/* CONTACTS */
+
+.contacts {
+    width: 35%;
+    height: 100%;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    height: 80px;
+    background-color: blueviolet;
+}
+
+.notification {
+    height: 90px;
+    background-color: cornflowerblue;
+}
+
+.finder {
+    height: 60px;
+    background-color: green;
+}
+
+.chat {
+    height: calc(100% - 230px);
+    background-color: violet;
+}
+
+/* MESSAGES */
+
+.messages {
+    width: 65%;
+    height: 100%;
+    background-color: chartreuse;
+}
+
+.top {
+    height: 80px;
+    background-color: chocolate;
+}
+
+.center {
+    height: calc(100% - 160px);
+}
+
+.bottom {
+    height: 80px;
+    background-color: chocolate;
 }
