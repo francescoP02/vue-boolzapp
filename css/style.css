@@ -158,10 +158,6 @@ li {
     outline: none;
 }
 
-.finder input::placeholder {
-    padding-left: 10px;
-}
-
 /* CHAT */
 
 .chat {
@@ -170,12 +166,16 @@ li {
     display: flex;
     width: 100%;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .chat-section {
     display: flex;
     flex-direction: row;
+}
+
+.chat-section.active {
+    background-color: #e9ebeb;
 }
 
 .chat-section section {

@@ -66,7 +66,7 @@
 
                 <div class="chat">
 
-                    <section class="chat-section" v-for="item in contacts">
+                    <section class="chat-section" v-for="(item, index) in contacts" @click="clickedItem(index)" :class="{active : index === currentContact}">
                         <div class="icon">
                             <img class="img-icon" :src="'img/avatar'+ item.avatar +'.jpg'" alt="">
                         </div>
@@ -74,7 +74,7 @@
                         <section>
 
                             <h4>{{item.name}}</h4>
-                            <span>{{ item.messages[0].message }}</span>
+                            <span>{{item.messages[item.messages.length - 1].message}}</span>
 
                         </section>
 
@@ -87,32 +87,24 @@
             <div class="messages">
                 <div class="top">
                     <div class="icon-message">
-                        <img class="img-icon" src="img/avatar_1.jpg" alt="">
+                        <img class="img-icon" :src="'img/avatar'+ contacts[currentContact].avatar +'.jpg'" alt="">
                     </div>
 
                     <section>
 
-                        <h4>Michele</h4>
+                        <h4> {{contacts[currentContact].name}} </h4>
                         <span>Ultimo accesso oggi alle 12:00</span>
 
                     </section>
                 </div>
 
                 <div class="center">
-                    <div class="message sent">
-                        <p>Hai portato a spasso il cane?</p>
-                        <span>15:30</span>
+
+                    <div class="message" v-for="item in contacts[currentContact].messages" :class="{sent : item.status == `sent`, received : item.status == `received`}">
+                        <p>{{item.message}}</p>
+                        <span>{{item.date}}</span>
                     </div>
 
-                    <div class="message sent">
-                        <p>Ricordati di stendere i panni</p>
-                        <span>15:50</span>
-                    </div>
-
-                    <div class="message received">
-                        <p>Tutto fatto!</p>
-                        <span>16:15</span>
-                    </div>
                 </div>
 
                 <div class="bottom">
