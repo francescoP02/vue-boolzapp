@@ -16,6 +16,7 @@ var app = new Vue(
         el: `#root`,
         data: {
             newMessageInput : ``,
+            search: ``,
             currentContact : 0,
             currentDate: new Date(),
             contacts: [
@@ -202,6 +203,25 @@ var app = new Vue(
                     this.contacts[currentContact].messages.push({message: "Ok", status: `received`, date: this.currentDate.getDate() + `/` + this.currentDate.getMonth() + `/` + this.currentDate.getDate() + ` ` + this.currentDate.getHours() + `:` + this.currentDate.getMinutes() + `:` + this.currentDate.getSeconds()});
                 }, 1000);
             },
+
+            filterChat: function (contacts) {
+                console.log(this.search);
+                // Scorro l'array di contacts
+                // Per ogni elmento
+                // se il name contiene il search,
+                // visible diventa true
+                // altrimenti
+                //visible diventa false
+                this.contacts.forEach((contacts) => {
+                  const formattedText = contacts.name.toLowerCase();
+                  const formattedSearch = this.search.toLowerCase();
+                  if (formattedText.includes(formattedSearch)) {
+                    contacts.visible = true;
+                  } else {
+                    contacts.visible = false;
+                  }
+                });
+              },
 
         },
     }

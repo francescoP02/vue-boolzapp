@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="finder">
-                    <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input id="filter-chat" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="filterChat">
                 </div>
 
                 <div class="chat">
