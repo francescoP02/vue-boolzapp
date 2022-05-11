@@ -109,7 +109,7 @@
 
                 <div class="bottom">
                     <span><i class="far fa-smile"></i></span>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" @keyup.enter="addMessage(contacts,currentContact)" placeholder="Scrivi un messaggio" v-model="newMessageInput">
                     <span><i class="fas fa-microphone"></i></span>
                 </div>
             </div>

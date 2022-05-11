@@ -15,7 +15,9 @@ var app = new Vue(
     {
         el: `#root`,
         data: {
+            newMessageInput : ``,
             currentContact : 0,
+            currentDate: new Date(),
             contacts: [
                 {
                     name: 'Michele',
@@ -185,7 +187,22 @@ var app = new Vue(
         methods: {
             clickedItem : function(index) {
                 this.currentContact = index;
-            }
+            },
+
+            addMessage : function(contacts ,currentContact) {
+                if (this.newMessageInput !== "") {
+                    this.contacts[currentContact].messages.push({message: this.newMessageInput, status: `sent`, date: this.currentDate.getDate() + `/` + this.currentDate.getMonth() + `/` + this.currentDate.getDate() + ` ` + this.currentDate.getHours() + `:` + this.currentDate.getMinutes() + `:` + this.currentDate.getSeconds()});
+                    this.newMessageInput = ``;
+                    this.generateMsg(contacts, currentContact);
+                }
+            },
+
+            generateMsg(contacts, currentContact) {
+                this.autoMessage = setTimeout( () => {
+                    this.contacts[currentContact].messages.push({message: "Ok", status: `received`, date: this.currentDate.getDate() + `/` + this.currentDate.getMonth() + `/` + this.currentDate.getDate() + ` ` + this.currentDate.getHours() + `:` + this.currentDate.getMinutes() + `:` + this.currentDate.getSeconds()});
+                }, 1000);
+            },
+
         },
     }
 )
