@@ -61,12 +61,12 @@
                 </div>
 
                 <div class="finder">
-                    <input id="filter-chat" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="filterChat">
+                    <input id="filter-chat" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="filterChat(contacts)">
                 </div>
 
                 <div class="chat">
 
-                    <section class="chat-section" v-for="(item, index) in contacts" @click="clickedItem(index)" :class="{active : index === currentContact}">
+                    <section class="chat-section" v-if="item.visible" v-for="(item, index) in contacts" @click="clickedItem(index)" :class="{active : index === currentContact}">
                         <div class="icon">
                             <img class="img-icon" :src="'img/avatar'+ item.avatar +'.jpg'" alt="">
                         </div>
