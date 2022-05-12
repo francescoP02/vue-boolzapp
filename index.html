@@ -102,14 +102,19 @@
                 <div class="center">
 
                     <div class="message" v-for="(item, index) in contacts[currentContact].messages" :class="{sent : item.status == `sent`, received : item.status == `received`}">
-                        <span class="dropdown">
-                            <i class="fas fa-caret-down" @click="dropdownMenu(item)"></i>
-                            <div class="menu" id="dropdown-menu" v-if="item.dropdownmenu == `true`">
-                                <span>Info messaggio</span>
-                                <span @click="deleteMessage(index, item)">Cancella messaggio</span>
-                            </div>
-                        </span>
-                        <p>{{item.message}}</p>
+                        <section>
+
+                            <p>{{item.message}}</p>
+
+                            <span class="dropdown">
+                                <i class="fas fa-caret-down" @click="dropdownMenu(item)"></i>
+                                <div class="menu" id="dropdown-menu" v-if="item.dropdownmenu == `true`">
+                                    <span>Info messaggio</span>
+                                    <span @click="deleteMessage(index, item)">Cancella messaggio</span>
+                                </div>
+                            </span>
+
+                        </section>
                         <span> {{ getTime(item.date) }} </span>
                     </div>
 
