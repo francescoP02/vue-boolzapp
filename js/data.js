@@ -10,6 +10,7 @@
 // --> Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 // Milestone 4
 // --> Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina).
+dayjs.extend(window.dayjs_plugin_customParseFormat);
 
 var app = new Vue(
     {
@@ -248,8 +249,8 @@ var app = new Vue(
             },
 
             getTime(date) {
-                const dayjsDate = dayjs(date, 'DD-MM-YYYY HH:mm:ss');
-                return dayjsDate.format('HH:mm:ss');
+                console.log(dayjs(date));
+                return dayjs(date, 'DD/MM/YYYY HH:mm:ss').format('HH:mm');
             },
 
             dropdownMenu(item) {
@@ -267,7 +268,4 @@ var app = new Vue(
 
     }
 );
-
-const date = dayjs('28/03/2020 10:20:10', 'DD-MM-YYYY HH:mm:ss');
-console.log(date.format('HH:mm'));
 

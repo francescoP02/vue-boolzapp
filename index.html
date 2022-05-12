@@ -73,9 +73,9 @@
 
                         <section>
 
-                            <span class="last-message-date">{{item.messages[item.messages.length - 1].date.slice(11,20)}}</span>
+                            <span v-if="item.messages.length > 0" class="last-message-date">{{item.messages[item.messages.length - 1].date.slice(11,20)}}</span>
                             <h4>{{item.name}}</h4>
-                            <span>{{item.messages[item.messages.length - 1].message.slice(0,25) + `...`}}</span>
+                            <span  v-if="item.messages.length > 0">{{item.messages[item.messages.length - 1].message.slice(0,25) + `...`}}</span>
 
                         </section>
 
