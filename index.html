@@ -102,8 +102,9 @@
                 <div class="center">
 
                     <div class="message" v-for="item in contacts[currentContact].messages" :class="{sent : item.status == `sent`, received : item.status == `received`}">
+                        <span class="dropdown"><i class="fas fa-caret-down"></i></span>
                         <p>{{item.message}}</p>
-                        <span>{{item.date}}</span>
+                        <span> {{ getTime(item.date) }} </span>
                     </div>
 
                 </div>
@@ -119,6 +120,10 @@
     </div>
 
     <!-- SCRIPT -->
+
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.25/plugin/customParseFormat.js"></script>
 
     <script src="js/data.js" type="text/javascript"></script>
     

@@ -18,7 +18,6 @@ var app = new Vue(
             newMessageInput : ``,
             search: ``,
             currentContact : 0,
-            currentDate: new Date(),
             contacts: [
                 {
                     name: 'Michele',
@@ -192,7 +191,7 @@ var app = new Vue(
 
             addMessage : function(contacts ,currentContact) {
                 if (this.newMessageInput !== "") {
-                    this.contacts[currentContact].messages.push({message: this.newMessageInput, status: `sent`, date: this.currentDate.getDate() + `/` + this.currentDate.getMonth() + `/` + this.currentDate.getDate() + ` ` + this.currentDate.getHours() + `:` + this.currentDate.getMinutes() + `:` + this.currentDate.getSeconds()});
+                    this.contacts[currentContact].messages.push({message: this.newMessageInput, status: `sent`, date: this.getCurrentTime()});
                     this.newMessageInput = ``;
                     this.generateMsg(contacts, currentContact);
                 }
@@ -200,7 +199,7 @@ var app = new Vue(
 
             generateMsg(contacts, currentContact) {
                 this.autoMessage = setTimeout( () => {
-                    this.contacts[currentContact].messages.push({message: "Ok", status: `received`, date: this.currentDate.getDate() + `/` + this.currentDate.getMonth() + `/` + this.currentDate.getDate() + ` ` + this.currentDate.getHours() + `:` + this.currentDate.getMinutes() + `:` + this.currentDate.getSeconds()});
+                    this.contacts[currentContact].messages.push({message: "Ok", status: `received`, date: this.getCurrentTime()});
                 }, 1000);
             },
 
@@ -221,8 +220,22 @@ var app = new Vue(
                     contacts.visible = false;
                   }
                 });
-              },
+            },
+
+            getCurrentTime() {
+                return dayjs().format('DD-MM-YYYY HH:mm:ss');
+            },
+
+            getTime(date) {
+                const dayjsDate = dayjs(date, 'DD-MM-YYYY HH:mm:ss');
+                return dayjsDate.format('HH:mm:ss');
+            },
 
         },
+
     }
-)
+);
+
+const date = dayjs('28/03/2020 10:20:10', 'DD-MM-YYYY HH:mm:ss');
+console.log(date.format('HH:mm'));
+
