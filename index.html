@@ -75,7 +75,7 @@
 
                             <span class="last-message-date">{{item.messages[item.messages.length - 1].date.slice(11,20)}}</span>
                             <h4>{{item.name}}</h4>
-                            <span>{{item.messages[item.messages.length - 1].message.slice(0,20) + `...`}}</span>
+                            <span>{{item.messages[item.messages.length - 1].message.slice(0,25) + `...`}}</span>
 
                         </section>
 
@@ -101,8 +101,14 @@
 
                 <div class="center">
 
-                    <div class="message" v-for="item in contacts[currentContact].messages" :class="{sent : item.status == `sent`, received : item.status == `received`}">
-                        <span class="dropdown"><i class="fas fa-caret-down"></i></span>
+                    <div class="message" v-for="(item, index) in contacts[currentContact].messages" :class="{sent : item.status == `sent`, received : item.status == `received`}">
+                        <span class="dropdown">
+                            <i class="fas fa-caret-down" @click="dropdownMenu(item)"></i>
+                            <div class="menu" id="dropdown-menu" v-if="item.dropdownmenu == `true`">
+                                <span>Info messaggio</span>
+                                <span @click="deleteMessage(index, item)">Cancella messaggio</span>
+                            </div>
+                        </span>
                         <p>{{item.message}}</p>
                         <span> {{ getTime(item.date) }} </span>
                     </div>
